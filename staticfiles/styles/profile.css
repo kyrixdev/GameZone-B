@@ -1,0 +1,77 @@
+.container {
+    display: flex;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.sidebar {
+    flex: 1;
+    padding-right: 20px;
+    border-right: 1px solid #ccc;
+}
+.content {
+    flex: 3;
+    padding-left: 20px;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+ul li {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+ul li:hover {
+    color: blue;
+}
+.profile {
+    display: none;
+}
+.orders {
+    display: none;
+}
+.receipts {
+    display: none;
+}
+.active {
+    display: block;
+}
+
+
+
+.orders-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Custom class for the order items */
+.order-item {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom class for the status */
+.order-status {
+    color: #007bff;
+}
+
+/* Custom class for horizontal rule */
+.order-divider {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+.content > div {
+    display: none; /* Hide all content divs initially */
+}
+
+.content > div.active {
+    display: block; /* Show the active content div */
+}

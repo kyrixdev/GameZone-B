@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "styles/newCart.css" %}">
+    {% block title %}<title>GameZone - product</title>{% endblock title %}
+    
+
+{% endblock head %}
+
+
+{% block header %}
+    {% include 'components/navigation.html' %}
+{% endblock header %}
+
+
+
+{% block main %}
+    <div class="card">
+        <div class="row cartContainer">
+            <div class="col-md-8 cart">
+                <div class="title">
+                    <div class="row">
+                        <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                        <div class="col align-self-center text-right text-muted itemsCount">{{total_items}} items</div>
+                    </div>
+                </div>
+                {% if cart %}
+                <div class="cartItems">
+                    {% for item in items %}
+                        <div class="row border-top border-bottom">
+                            <div class="row shoppinglist align-items-center">
+                                <div class="product">
+                                    <div class="col-2 image"><img class="img-fluid" src="{{ item.product.image.url }}"></div>
+                                    <div class="col info">
+                                        <div class="row text-muted">{{ item.product.title }}</div>
+                                        <div class="row">{{ item.product.category }}</div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="quantity__div">
+                                        <div class="value-button" id="decrease" data-item-id="{{ item.id }}" value="Decrease Value">-</div>
+                                        <input type="number" class='number' id="number{{ item.id }}" value="{{item.quantity}}" />
+                                        <div class="value-button" id="increase" data-item-id="{{ item.id }}" value="Increase Value">+</div>
+                                    </div>
+                                </div>
+                                <div class="col price">TND {{item.product.price}}</div>
+                                <button class="delete-item-btn delete__delete" data-item-id="{{ item.id }}">Remove</button>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {% endif %}
+                
+                <div class="back-to-shop"><a href="{% url "catalog" %}">&leftarrow; <span class="text-muted">Back to shop</span></a></div>
+        </div>
+        <div class="col-md-4 summary">
+            <div class="heading">Summary</div>
+            <hr>
+            <div class="row itemsRow">
+                <div class="col itemsCount" style="padding-left:0;">Subtotal <span> ({{total_items}} items) </span></div>
+                <div class="col text-right totalPrice">TND {{cart.calculate_total_price}}</div>
+            </div>
+         <form>
+                <p class="shipping_title">SHIPPING</p>
+                <form id="colorForm" method="POST" action="">
+                    <div class="colors__divs">
+                        
+                            <div class="divs__div color flexCenter" data-color-id="2">
+                                <div class="shipping_option_container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-store"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2v0a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12v0a2 2 0 0 1-2-2V7"/></svg>
+                                    <p>Pick up in store</p>
+                                    <p>Availble in working time</p>
+                                </div>
+                            </div>
+                        
+                            <div class="divs__div color flexCenter" data-color-id="3">
+                                <div class="shipping_option_container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-truck"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg> 
+                                    <p>Ship to home</p>
+                                    <p>1-2 day shipping</p>
+                                </div>
+                            </div>
+                        
+                    </div>
+                    <input type="hidden" id="selectedColorInput" name="selected_color" value="">
+                </form>
+                <p class="coupon_title">GIVE CODE</p>
+                <form id="couponForm" method="POST" action="">
+                    <input id="code" placeholder="Enter your code">
+                    <button class="btn couponbtn">APPLY</button>
+                </form>
+            </form>
+            <div class="row totalPrices" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                <div>
+                    <div class="col shippingspan">SHIPPING</div>
+                    <div class="col text-right shippingtotal">TND 7.00</div>
+                </div>
+                <div>
+                    <div class="col totalpricespan">TOTAL PRICE</div>
+                    <div class="col text-right total_ttotal">TND {{ultimate_total}}</div>
+                </div>
+                
+            </div>
+            <a href='{% url "checkout" %}' class="btn checkoutbtn">CHECKOUT</a>
+        </div>
+    </div>
+            
+<script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+                                
+<script type='text/javascript'>
+document.addEventListener('DOMContentLoaded', function() {
+
+
+    totalPriceDiv = document.querySelector(".totalPrice")
+    ultimateTotal = document.querySelector('.total_ttotal')
+    const itemsCount = document.querySelectorAll('.itemsCount');
+    increaseButtons = document.querySelectorAll('#increase')
+        increaseButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const itemId = this.dataset.itemId;
+                increaseValue(itemId);
+            });
+        });
+
+        decreaseButtons = document.querySelectorAll('#decrease')
+        decreaseButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const itemId = this.dataset.itemId;
+                decreaseValue(itemId);
+            });
+        });
+        
+        function UpdateQuantity(itemId, value) {
+            $.ajax({
+                type: 'POST',
+                url: '/update-cart-item-quantity/',
+                data: {itemId: itemId, quantity: value}, // Pass the item ID in the request data
+                beforeSend: function (xhr, settings) {
+                    xhr.setRequestHeader('X-CSRFToken', getCookie("csrftoken"));
+                },
+                success: function (response) {
+                    console.log(response);
+                    totalPriceDiv.innerText = "TND " + response.total_price
+                    ultimateTotal.innerText = "TND " + response.ultimate_total
+                    // Remove the cart item from the HTML on success
+                    
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error deleting cart item:', error);
+                }
+            });
+        }
+
+        function increaseValue(itemId) {
+          var value = parseInt(document.getElementById(`number${itemId}`).value, 10);
+          value = isNaN(value) ? 0 : value;
+          value++;
+          UpdateQuantity(itemId, value)
+          document.getElementById(`number${itemId}`).value = value;
+        }
+        
+        function decreaseValue(itemId) {
+            var value = parseInt(document.getElementById(`number${itemId}`).value, 10);
+            console.log('Decreasing value:', value);
+            value = isNaN(value) ? 0 : value;
+            value = Math.max(1, value - 1); // Ensure minimum value is 1
+            UpdateQuantity(itemId, value)
+            document.getElementById(`number${itemId}`).value = value;
+        }
+
+    const deleteButtons = document.querySelectorAll('.delete-item-btn');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const itemId = button.dataset.itemId; // Access dataset attribute of the button
+
+            // Send a POST request to delete the cart item
+            $.ajax({
+                type: 'POST',
+                url: '/delete-cart-item/',
+                data: { itemId: itemId }, // Pass the item ID in the request data
+                beforeSend: function (xhr, settings) {
+                    xhr.setRequestHeader('X-CSRFToken', getCookie("csrftoken"));
+                },
+                success: function (response) {
+                    console.log(response);
+                    // Remove the cart item from the HTML on success
+                    const cartItem = button.closest('.row.border-top.border-bottom');
+                    totalPriceDiv.innerText = "TND " + response.total_price
+                    ultimateTotal.innerText = "TND " + response.ultimate_total
+                    itemsCount.forEach(element => {
+                        // Update the inner text of each element with the total number of items from the response
+                        element.innerText = "Items " + response.total_items;
+                    });
+                    cartItem.remove();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error deleting cart item:', error);
+                }
+            });
+        });
+    });
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+});                   
+</script>
+{% endblock main %}
+
+{% block footer %}
+    {% include "components/footer.html" %}
+{% endblock footer %}
+
+{% block scripts %}
+<script src="{% static "js/product.js" %}"></script>
+{% endblock scripts %}

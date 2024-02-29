@@ -1,0 +1,35 @@
+.main__brands {
+    width: 100%;
+    height: 50vh;
+}
+
+.brands__div {
+    padding: 0 16rem;
+    width: 100%;
+    height: 100%;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.brands__brand {
+    width: 400px;
+    height: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+}
+
+.brands__brand:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.brand__img {
+    width: 100%;
+    height: 100%;
+}
+
+.brand__img img {
+    width: 100%;
+    height: 100%;
+}

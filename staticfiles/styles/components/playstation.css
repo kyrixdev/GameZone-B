@@ -1,0 +1,163 @@
+.main__playstation {
+    width: 100%;
+    height: 120vh;
+    max-height: 1080px;
+    background-color: white;
+    padding:  0 16rem;
+}
+
+.main__playstation .playstation__div {
+    width: 100%;
+    max-width: 1920px;
+    height: 90%;
+    padding: 0 3rem ;
+    flex-flow: column nowrap;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    gap: 1rem;
+}
+
+.main__playstation .playstation__layer {
+    width: 100%;
+    height: 30%;
+}
+
+.main__playstation .playstation__layer1 {
+    height: 13%;
+}
+
+.main__playstation .layer1__text {
+    width: 100%;
+    height: 100%;
+    padding: 0 2rem;
+}
+
+.main__playstation .text__title {
+    font-size: 4rem;
+    font-weight: 900;
+}
+
+.main__playstation .text__slogan {
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+.main__playstation .playstation__layer2 {
+    height: 50%;
+}
+
+.main__playstation .layer2__cards {
+    width: 100%;
+    height: 100%;
+    gap: 1rem;
+}
+
+.main__playstation .cards__card {
+    width: 600px;
+    height: 450px;
+    border-radius: 15px;
+    transition: all .5s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: column nowrap;
+    overflow: hidden;
+}
+
+.main__playstation .card__upper {
+    width: 100%;
+    z-index: 20;
+    height: 15%;
+    background-color: white;
+}
+
+.main__playstation .card__lower {
+    width: 100%;
+    height: 85%;
+    background-color: var(--MP-C);
+}
+
+.main__playstation .lower__div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.main__playstation .lower__img {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.main__playstation .lower__img img {
+    z-index: 10;
+    pointer-events: none;
+    width: 100%;
+    height: auto;
+    transition: all .5s ease-in-out;
+    z-index: 1;
+}
+
+
+.main__playstation .cards__card:hover img {
+    width: 40%;
+    height: auto;
+    transform: translateX(180px);
+}
+
+.main__playstation .lower__content {
+    flex-flow: column;
+    width: 60%;
+    height: 400px;
+    position: absolute;
+    transition: .5s;
+    transform: translate(-360px, -383px);
+    transform-style: preserve-3d;
+    opacity: 1;
+}
+
+.main__playstation .cards__card:hover .lower__content {
+    transform: translate(0px, -383px);
+    opacity: 1;
+}
+
+.content__price {
+    font-size: 2rem;
+    color: white;
+}
+
+.content__text {
+    font-size: 1.5rem;
+    color: white;
+}
+
+
+
+
+
+
+
+.main__playstation .playstation__layer3 {
+    padding: 1rem 2rem;
+    height: 30%;
+}
+
+.main__playstation .layer__CTA {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.main__playstation .layerCTA__div {
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.main__playstation .layerCTA__img {
+    width: 100%;
+    height: 100%;
+}

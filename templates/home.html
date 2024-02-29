@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    {% block title %}<title>GameZone</title>{% endblock title %}
+    
+{% endblock head %}
+
+{% block header %}
+    {% include 'components/navigation.html' %}
+{% endblock header %}
+
+{% block main %}
+
+    <div class="main__div">
+
+        {% include 'components/hero.html' %}
+        {% include 'components/top-deals.html' %}
+        {% include 'components/CTA.html' %}
+        {% include 'components/pre-owned-deals.html' %}
+        {% include 'components/miniCTA.html' %}
+        {% include 'components/consoleCatalog.html' %}
+        {% include 'components/browseByCategory.html' %}
+        {% include 'components/brands.html' %}
+        {% include 'components/largeCTA.html' %}
+        {% include 'components/playstation.html' %}
+        {% include 'components/xbox.html' %}
+        {% include 'components/gamesCatalog.html' %}
+        {% include 'components/featuredGames.html' %}
+        {% include 'components/featuredGamesCTA.html' %}
+        {% include 'components/featuredGamesCategorys.html' %}
+        {% include 'components/accesoriesCatalog.html' %}
+        {% include 'components/secondMiniCTA.html' %}
+
+
+    </div>
+
+{% endblock main %}
+    
+{% block footer %}
+    {% include "components/footer.html" %}
+{% endblock footer %}
+
+{% block scripts %}{% endblock scripts %}
+

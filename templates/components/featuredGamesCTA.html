@@ -1,0 +1,28 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static "styles/components/featuredGamesCTA.css" %}">
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<div class="main__featureGamesCTA flexCenter">
+    <div class="featuredGamesCTA__div flexCenter">
+        <div class="featuredGameCTA__slider swiper mySwiperMini">
+            <div class="swiper-wrapper">
+                {% for cta in featured_games_cta %}
+                <a href="#" class="swiper-slide unselectable">
+                    <img src="{{ cta.image.url }}" alt="{{ cta.title }}">
+                </a>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination swiper-paginationMini"></div>
+            <div class="autoplay-progress autoplay-progressMini">
+                <svg viewBox="0 0 48 48">
+                    <circle cx="24" cy="24" r="20"></circle>
+                </svg>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static "js/components/featuredGamesCTA.js" %}"></script>

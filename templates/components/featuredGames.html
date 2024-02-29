@@ -1,0 +1,19 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static "styles/components/featuredGames.css" %}">
+
+<div class="main__featuredGames flexCenter">
+
+
+    <div class="featuredGames__div flexCenter">
+
+        <a href="#" class="featuredGames__game flexCenter">
+            <img src="{{featured_games.deal_1.image.url}}" alt="">
+        </a>
+        <a href="#" class="featuredGames__game flexCenter">
+            <img src="{{featured_games.deal_2.image.url}}" alt="">
+        </a>
+
+    </div>
+
+</div>

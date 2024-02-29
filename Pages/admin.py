@@ -1,0 +1,20 @@
+from django.contrib import admin
+from .models import Hero, TopDeals, Deal, CTA1, PreOwnedDeals, CTA2, TopHardware, Brands, CTA3, PlaystationDeals, XboxDeals, TopGames, FeaturedGamesCTA, FeaturedGenres, TopAccessories, CTA4, FeaturedGames
+
+admin.site.register(Hero)
+admin.site.register(TopDeals)
+admin.site.register(Deal)
+admin.site.register(CTA1)
+admin.site.register(PreOwnedDeals)
+admin.site.register(CTA2)
+admin.site.register(TopHardware)
+admin.site.register(Brands)
+admin.site.register(CTA3)
+admin.site.register(PlaystationDeals)
+admin.site.register(XboxDeals)
+admin.site.register(TopGames)
+admin.site.register(FeaturedGames)
+admin.site.register(FeaturedGamesCTA)
+admin.site.register(FeaturedGenres)
+admin.site.register(TopAccessories)
+admin.site.register(CTA4)

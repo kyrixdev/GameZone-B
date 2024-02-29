@@ -1,0 +1,207 @@
+.header__div {
+    width: 100%;
+    height: 150px;
+    color: black;
+
+    
+
+}
+
+.header__navbar {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+    padding: 0 3rem;
+    background-color: white;
+
+    z-index: 100;
+}
+
+.navbar__logo {
+    z-index: 1000;
+    width: 250px;
+    height: 100%;
+}
+
+.logo__img {
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+.navbar__search {
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 1rem 0 2rem;
+    
+}
+
+.search__div {
+    z-index: 1000;
+    color: black;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 45%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+.search__ico {
+    z-index: 1000;
+    padding: 0;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 100%;
+    border-radius: 2px;
+
+}
+
+.search__ico:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* White with low opacity */
+}
+.search__ico:active {
+    background-color: transparent; /* Remove background color on :active */
+}
+
+.search__ico i {
+    z-index: 1000;
+    padding: 0;
+    margin: 0;
+}
+
+.search__input {
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+}
+
+.search__input input {
+    z-index: 1000;
+    outline: none;
+    font-weight: 800;
+    padding: 0 .5rem;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+}
+
+.navbar__navigation {
+    z-index: 1000;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navigation__element {
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+    flex-flow: column nowrap;
+    padding: .5rem 0;
+}
+
+.navigation__sign-in {
+    z-index: 1000;
+}
+
+.sign-in__text {
+    z-index: 1000;
+}
+
+.navigation__sign-in i{
+    z-index: 1000;
+}
+
+.navigation__cart {
+    z-index: 1000;
+}
+
+.navigation__cart i {
+    z-index: 1000;
+}
+
+.cart__text {
+    z-index: 1000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.header__categories {
+    z-index: 40;
+
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100%;
+
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 50px;
+    /* Add a higher z-index value to the categories */
+    z-index: 10;
+    transition: all .3s;
+}
+
+.categories__div {
+    z-index: 40;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 3rem;
+}
+
+.categories__div a {
+    z-index: 40;
+
+}

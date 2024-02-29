@@ -1,0 +1,147 @@
+{% load static %}
+<link rel="stylesheet" href="{% static "styles/components/top-deals.css" %}">
+
+<div class="main__top-deals flexCenter">
+
+    <div class="top-deals__div flexCenter">
+
+        <div class="top-deals__layer1 top-deals__layer">
+            <div class="layer1__text">
+
+                <div class="text__title">Top Deals</div>
+                <div class="text__slogan">
+                    Save big on stuff you love
+                </div>
+
+            </div>
+
+        </div>
+        <div class="top-deals__layer2 top-deals__layer">
+
+            <div class="layer2__cards flexCenter">
+                
+                <a href="product/{{top_deals.deal_1.product.id}}">
+                    <div class="cards__card">
+
+                        <div class="card__upper flexCenter">{{top_deals.deal_1.product.title}}</div>
+                        
+                        <div class="card__lower flexCenter">
+                        
+                            <div class="lower__div">
+                            
+                                <div class="lower__img flexCenter">
+                                    <img src="{{top_deals.deal_1.image.url}}" alt="">
+                                </div>
+                                <div class="lower__content flexCenter">
+                                
+                                    <div class="content__price">{{top_deals.deal_1.product.price}}TND</div>
+                                    <div class="content__text">{{top_deals.deal_1.description}}</div>
+                                
+                                </div>
+                            
+                            </div>
+                        
+                        </div>
+    
+                    </div>
+                </a>
+                <a href="product/{{top_deals.deal_2.product.id}}">
+                    <div class="cards__card">
+
+                        <div class="card__upper flexCenter">{{top_deals.deal_2.product.title}}</div>
+                        
+                        <div class="card__lower flexCenter">
+                        
+                            <div class="lower__div">
+                            
+                                <div class="lower__img flexCenter">
+                                    <img src="{{top_deals.deal_2.image.url}}" alt="">
+                                </div>
+                                <div class="lower__content flexCenter">
+                                
+                                    <div class="content__price">{{top_deals.deal_2.product.price}}TND</div>
+                                    <div class="content__text">{{top_deals.deal_2.description}}</div>
+                                
+                                </div>
+                            
+                            </div>
+                        
+                        </div>
+    
+                    </div>
+                </a>
+
+                <a href="product/{{top_deals.deal_3.product.id}}">
+                    <div class="cards__card">
+
+                        <div class="card__upper flexCenter">{{top_deals.deal_3.product.title}}</div>
+                        
+                        <div class="card__lower flexCenter">
+                        
+                            <div class="lower__div">
+                            
+                                <div class="lower__img flexCenter">
+                                    <img src="{{top_deals.deal_3.image.url}}" alt="">
+                                </div>
+                                <div class="lower__content flexCenter">
+                                
+                                    <div class="content__price">{{top_deals.deal_3.product.price}}TND</div>
+                                    <div class="content__text">{{top_deals.deal_3.description}}</div>
+                                
+                                </div>
+                            
+                            </div>
+                        
+                        </div>
+    
+                    </div>
+                </a>
+
+                <a href="product/{{top_deals.deal_1.product.id}}">
+                    <div class="cards__card">
+
+                        <div class="card__upper flexCenter">{{top_deals.deal_1.product.title}}</div>
+                        
+                        <div class="card__lower flexCenter">
+                        
+                            <div class="lower__div">
+                            
+                                <div class="lower__img flexCenter">
+                                    <img src="{{top_deals.deal_1.image.url}}" alt="">
+                                </div>
+                                <div class="lower__content flexCenter">
+                                
+                                    <div class="content__price">{{top_deals.deal_1.product.price}}TND</div>
+                                    <div class="content__text">{{top_deals.deal_1.description}}</div>
+                                
+                                </div>
+                            
+                            </div>
+                        
+                        </div>
+    
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+        <div class="top-deals__layer3 top-deals__layer">
+
+            <a href="#">
+                <div class="layer__CTA">
+
+                    <div class="layerCTA__div flexCenter">
+    
+                        <div class="layerCTA__img">
+                            <img src="{{top_deals.banner.url}}" alt=""></div>
+                        </div>
+    
+                    </div>
+    
+                </div>
+            </a>
+
+        </div>
+
+</div>

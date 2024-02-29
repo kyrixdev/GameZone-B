@@ -1,0 +1,92 @@
+{% load static %}
+<link rel="stylesheet" href="{% static "styles/components/xbox.css" %}">
+
+<div class="main__xbox">
+    <div class="xbox__div flexCenter">
+        <div class="xbox__layer1 xbox__layer">
+            <div class="layer1__text">
+                <div class="text__title">Nintendo Deals</div>
+                <div class="text__slogan">
+                    Save big on stuff you love
+                </div>
+            </div>
+        </div>
+        
+        <div class="xbox__layer3 xbox__layer">
+            <div class="layer__CTA">
+                <a href="#" class="layerCTA__div flexCenter">
+                    <div class="layerCTA__img">
+                        <img src="{{xbox_deals.banner.url}}" alt="Xbox CTA">
+                    </div>
+                </a>
+            </div>
+        </div>
+
+      <!-- <div class="xbox__layer2 xbox__layer">
+            <div class="layer2__cards flexCenter">
+                <!--<a href="product/{{ xbox_deals.deal_1.product.id }}"> 
+                    <div class="cards__card">
+                        <div class="card__upper flexCenter">{{ xbox_deals.deal_1.product.title }}</div>
+                        <div class="card__lower flexCenter">
+                            <div class="lower__div">
+                                <div class="lower__img flexCenter">
+                                    <img src="{{ xbox_deals.deal_1.image.url }}" alt="Deal 1 Image">
+                                </div>
+                                <div class="lower__content flexCenter">
+                                    <div class="content__price">{{ xbox_deals.deal_1.product.price }}</div>
+                                    <div class="content__text">{{ xbox_deals.deal_1.description }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+               <a href="product/{{ xbox_deals.deal_2.product.id }}">
+                    <div class="cards__card">
+                        <div class="card__upper flexCenter">{{ xbox_deals.deal_2.product.title }}</div>
+                        <div class="card__lower flexCenter">
+                            <div class="lower__div">
+                                <div class="lower__img flexCenter">
+                                    <img src="{{ xbox_deals.deal_2.image.url }}" alt="Deal 2 Image">
+                                </div>
+                                <div class="lower__content flexCenter">
+                                    <div class="content__price">{{ xbox_deals.deal_2.product.price }}</div>
+                                    <div class="content__text">{{ xbox_deals.deal_2.description }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>-->
+        <div class="xbox__layer2 xbox__layer">
+            <div class="layer2__cards flexCenter">
+                <!--<a href="product/{{ xbox_deals.deal_1.product.id }}"> -->
+                    <div class="cards__card">
+                        <div class="card__upper flexCenter">{{ xbox_deals.deal_1.product.title }}</div>
+                        <div class="card__lower flexCenter">
+                            <div class="lower__div">
+                                <div class="lower__img flexCenter">
+                                    <img src="{{ xbox_deals.deal_1.image.url }}" alt="Deal 1 Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               <!-- </a>-->
+
+               <!-- <a href="product/{{ xbox_deals.deal_2.product.id }}">-->
+                    <div class="cards__card">
+                        <div class="card__upper flexCenter">{{ xbox_deals.deal_2.product.title }}</div>
+                        <div class="card__lower flexCenter">
+                            <div class="lower__div">
+                                <div class="lower__img flexCenter">
+                                    <img src="{{ xbox_deals.deal_2.image.url }}" alt="Deal 2 Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               <!-- </a>-->
+            </div>
+        </div>
+    </div>
+</div>

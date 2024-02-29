@@ -1,0 +1,26 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static "styles/components/accesoriesCatalog.css" %}">
+
+<div class="main__accesoriesCatalog flexCenter">
+    <div class="accesoriesCatalog__div flexCenter">
+        <div class="accesoriesCatalog__text">
+            Shop Top Accessories
+        </div>
+        <div class="accesoriesCatalog__items flexCenter">
+            {% for accessory in top_accessories %}
+            <div class="accesoriesCatalog__item flexCenter">
+                <div class="item__div flexCenter">
+                    <div class="item__img flexCenter">
+                        <img src="{{ accessory.image.url }}" alt="{{ accessory.title }}">
+                    </div>
+                    <div class="item__info flexCenter">
+                        <div class="info__price">{{ accessory.price }}<span>DT</span></div>
+                        <div class="info__title">{{ accessory.title }}</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

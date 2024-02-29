@@ -1,0 +1,312 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "styles/product.css" %}">
+    {% block title %}<title>GameZone - product</title>{% endblock title %}
+    
+
+{% endblock head %}
+
+
+{% block header %}
+    {% include 'components/navigation.html' %}
+{% endblock header %}
+
+
+
+{% block main %}
+    <div class="main__product">
+
+        <div class="product__div">
+
+            <div class="product__product flexCenter">
+
+                <div class="product__url">{{product.subcategories}}</div>
+
+                <div class="product__info flexCenter">
+                   <div class="left__pictures-container flexCenter">
+                        <div class="pictures-container__sideImages">
+                            <div class="sideImages__div flexCenter">
+                                <div class="sideImages__sideImage flexCenter">
+                                    <img src="{{product.image.url}}" alt="">
+                                </div>
+                                {% for subImage in product.subImages.all %}
+                                <div class="sideImages__sideImage flexCenter">
+                                    <img src="{{ subImage.image.url }}" alt="">
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="pictures-container__mainImage" id="mainImageContainer">
+                            <img src="{{product.image.url}}" alt="" id="mainImage">
+                            <div class="zoom-circle" id="zoomCircle"></div>
+                        </div>
+                    </div> 
+
+                    
+                    
+                    <div class="info__right">
+
+                        <div class="right__title">{{product.title}}</div>
+
+                        <div class="right__manufacturer">{{product.manufacturer}}</div>
+
+                        <div class="right__reviews flexCenter">
+
+                            <div class="reviews__stars">
+                                {% for star in "xxxxx"|make_list %}
+                                
+                                    {% if forloop.counter <= reviews %}
+                                        <div class="stars__star"><i class="fa-solid fa-star"></i></div>
+                                    {% else %}
+                                        <div class="stars__star"><i class="fa-regular fa-star"></i></div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <div class="reviews__numbers"><a href="#"> 4.5 (15)</a></div>
+
+                        </div>
+
+                        <div class="right__price flexCenter">
+
+                            {% comment %} <div class="price__old">850</div> {% endcomment %}
+                            <div class="price__current">{{product.price}} TND</div>
+
+                        </div>
+                        <div class="points">
+                            <div class="points__div">You will collect 300 GZ Coins</div>
+                        </div>
+                        {% comment %} <div class="right__sizes">
+
+                            <div class="sizes__label">size: XXLx99</div>
+                            <div class="sizes__divs">
+
+                                <div class="divs__div size active flexCenter"><img src="{% static "assets/box.png" %}" alt=""></div>
+                                <div class="divs__div size flexCenter"><img src="{% static "assets/box.png" %}" alt=""></div>
+                                <div class="divs__div size flexCenter"><img src="{% static "assets/box.png" %}" alt=""></div>
+
+                            </div>
+
+                        </div> {% endcomment %}
+
+                        <div class="right__colors">
+
+                            <div class="colors__label">
+                                Color: <span>black</span>
+                            </div>
+                            <form id="colorForm" method="POST" action="">
+                                {% csrf_token %}
+                                <div class="colors__divs">
+                                    {% for color in product.colors.all %}
+                                        <div class="divs__div color flexCenter" data-color-id="{{ color.id }}">
+                                            <img src="{{color.image.url}}" alt="{{ color.name }}">
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <input type="hidden" id="selectedColorInput" name="selected_color" value="">
+                            </form>
+                            
+
+                        </div>
+
+                        <div class="right__shipping">
+                            <div class="shipping__div">FREE shipping on Orders 300TND+</div>
+                            <div class="shipping__div">3-7 Day Shipping</div>
+                        </div>
+
+                        <div class="right__button flexCenter">
+
+                            <a href="{% url 'add_to_cart' product.id %}" class="add-to-cart">Add to Cart</a>
+
+                        </div>
+
+                        {% comment %} <div class="right__payment-methodes">
+
+                            <div class="payment-methode">PAYMENT METHODE</div>
+                            <div class="payment-methode">PAYMENT METHODE</div>
+                            <div class="payment-methode">PAYMENT METHODE</div>
+
+                        </div> {% endcomment %}
+                        
+                    </div>
+
+
+
+
+                </div>
+                <div class="info__left">
+
+
+
+                    <div class="bottom__desctiption">
+
+                        <div class="description__features">
+                            <div class="features__title">Features:</div>
+                            <div class="features__container">
+
+                                <div class="features__div">
+                                    <div class="feature-div__bulletpoint">RAZER OPTICAL SWITCHES</div>
+                                    <div class="features-div__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, itaque.</div>
+                                </div>
+                                <div class="features__div">
+                                    <div class="feature-div__bulletpoint">RAZER OPTICAL SWITCHES</div>
+                                    <div class="features-div__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, itaque.</div>
+                                </div>
+                                <div class="features__div">
+                                    <div class="feature-div__bulletpoint">RAZER OPTICAL SWITCHES</div>
+                                    <div class="features-div__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, itaque.</div>
+                                </div>
+                                <div class="features__div">
+                                    <div class="feature-div__bulletpoint">RAZER OPTICAL SWITCHES</div>
+                                    <div class="features-div__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, itaque.</div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="description__full-description">
+                            <div class="full-description__title">Product Description:</div>
+                            <div class="full-description__content">{{product.description}}</div>
+                        </div>
+
+                        <div class="Specifications">
+                            <div class="features__title">Specifications:</div>
+                            <div class="product-accordion-panel">
+                                <div class="product-attribute-redesign ">
+                                <h3 class="product-attribute-group-name">Order Attributes</h3>
+                                <div class="col specifications js-productFeatures">
+                                <table class="product-attribute-table-redesign">
+                                <tbody><tr>
+                                <th>UPC</th>
+                                <td>
+                                889698746052
+                                </td>
+                                </tr>
+                                </tbody></table>
+                                </div>
+                                </div>
+                                <div class="product-attribute-redesign ">
+                                <h3 class="product-attribute-group-name">General</h3>
+                                <div class="col specifications js-productFeatures">
+                                <table class="product-attribute-table-redesign">
+                                <tbody><tr>
+                                <th>Brand Name</th>
+                                <td>
+                                Funko
+                                </td>
+                                </tr>
+                                <tr>
+                                <th>Vendor Part Number</th>
+                                <td>
+                                74605
+                                </td>
+                                </tr>
+                                <tr>
+                                <th>GameStop Exclusive</th>
+                                <td>
+                                true
+                                </td>
+                                </tr>
+                                </tbody></table>
+                                </div>
+                                </div>
+                                <div class="product-attribute-redesign ">
+                                <h3 class="product-attribute-group-name">Fandom</h3>
+                                <div class="col specifications js-productFeatures">
+                                <table class="product-attribute-table-redesign">
+                                <tbody><tr>
+                                <th>Franchise</th>
+                                <td>
+                                Yu-Gi-Oh!
+                                </td>
+                                </tr>
+                                </tbody></table>
+                                </div>
+                                </div>
+                                <div class="product-attribute-redesign ">
+                                <h3 class="product-attribute-group-name">Dimension</h3>
+                                <div class="col specifications js-productFeatures">
+                                <table class="product-attribute-table-redesign">
+                                <tbody><tr>
+                                <th>Product Length</th>
+                                <td>
+                                4.5
+                                </td>
+                                </tr>
+                                <tr>
+                                <th>Product Width</th>
+                                <td>
+                                3.5
+                                </td>
+                                </tr>
+                                <tr>
+                                <th>Product Height</th>
+                                <td>
+                                6.5
+                                </td>
+                                </tr>
+                                <tr>
+                                <th>Product Unit of Measure</th>
+                                <td>
+                                in
+                                </td>
+                                </tr>
+                                <tr>
+                                <th>Product Weight</th>
+                                <td>
+                                0.25
+                                </td>
+                                </tr>
+                                <tr>
+                                <th>Product Weight Unit of Measure</th>
+                                <td>
+                                lbs
+                                </td>
+                                </tr>
+                                </tbody></table>
+                                </div>
+                                </div>
+                                <div class="product-attribute-redesign ">
+                                <h3 class="product-attribute-group-name">Care Instructions</h3>
+                                <div class="col specifications js-productFeatures">
+                                <table class="product-attribute-table-redesign">
+                                <tbody><tr>
+                                <th>Product Warning and State Regulation</th>
+                                <td>
+                                Choking Hazard - Small Parts - Not For Children Under 3
+                                </td>
+                                </tr>
+                                </tbody></table>
+                                </div>
+                                </div>
+                                </div>
+                        </div>
+                        {% comment %} <div class="description__details">
+
+                            details here
+
+                        </div> {% endcomment %}
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            {% comment %} --- make related catalog --- {% endcomment %}
+            {% include 'components/relatedProductsCatalog.html' %}
+
+
+        </div>
+
+    </div>
+{% endblock main %}
+
+{% block footer %}
+    {% include "components/footer.html" %}
+{% endblock footer %}
+
+{% block scripts %}
+<script src="{% static "js/product.js" %}"></script>
+{% endblock scripts %}

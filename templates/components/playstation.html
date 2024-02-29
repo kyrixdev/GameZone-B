@@ -1,0 +1,96 @@
+{% load static %}
+<link rel="stylesheet" href="{% static "styles/components/playstation.css" %}">
+
+<div class="main__playstation">
+    <div class="playstation__div flexCenter">
+        <div class="playstation__layer1 playstation__layer">
+            <div class="layer1__text">
+                <div class="text__title">Playstation Deals</div>
+                <div class="text__slogan">
+                    Save big on stuff you love
+                </div>
+            </div>
+        </div>
+        
+        <div class="playstation__layer3 playstation__layer">
+            <div class="layer__CTA">
+                <a href="#" class="layerCTA__div flexCenter">
+                    <div class="layerCTA__img">
+                        <img src="{{ playstation_deals.banner.url }}" alt="Playstation CTA">
+                    </div>
+                </a>
+            </div>
+        </div>
+
+       <!-- <div class="playstation__layer2 playstation__layer">
+            <div class="layer2__cards flexCenter">
+                <a href="product/{{ playstation_deals.deal_1.product.id }}">
+                    <div class="cards__card">
+                        <div class="card__upper flexCenter">{{ playstation_deals.deal_1.product.title }}</div>
+                        <div class="card__lower flexCenter">
+                            <div class="lower__div">
+                                <div class="lower__img flexCenter">
+                                    <img src="{{ playstation_deals.deal_1.image.url }}" alt="Deal 1 Image">
+                                </div>
+                                <div class="lower__content flexCenter">
+                                    <div class="content__price">{{ playstation_deals.deal_1.product.price }}</div>
+                                    <div class="content__text">{{ playstation_deals.deal_1.description }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="product/{{ playstation_deals.deal_2.product.id }}">
+                    <div class="cards__card">
+                        <div class="card__upper flexCenter">{{ playstation_deals.deal_2.product.title }}</div>
+                        <div class="card__lower flexCenter">
+                            <div class="lower__div">
+                                <div class="lower__img flexCenter">
+                                    <img src="{{ playstation_deals.deal_2.image.url }}" alt="Deal 2 Image">
+                                </div>
+                                <div class="lower__content flexCenter">
+                                    <div class="content__price">{{ playstation_deals.deal_2.product.price }}</div>
+                                    <div class="content__text">{{ playstation_deals.deal_2.description }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+            </div>
+        </div>-->
+
+        <div class="playstation__layer2 playstation__layer">
+            <div class="layer2__cards flexCenter">
+                <a href="product/{{ playstation_deals.deal_1.product.id }}">
+                    <div class="cards__card">
+                        <div class="card__upper flexCenter">{{ playstation_deals.deal_1.product.title }}</div>
+                        <div class="card__lower flexCenter">
+                            <div class="lower__div">
+                                <div class="lower__img flexCenter">
+                                    <img src="{{ playstation_deals.deal_1.image.url }}" alt="Deal 1 Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="product/{{ playstation_deals.deal_2.product.id }}">
+                    <div class="cards__card">
+                        <div class="card__upper flexCenter">{{ playstation_deals.deal_2.product.title }}</div>
+                        <div class="card__lower flexCenter">
+                            <div class="lower__div">
+                                <div class="lower__img flexCenter">
+                                    <img src="{{ playstation_deals.deal_2.image.url }}" alt="Deal 2 Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+
+    </div>
+</div>

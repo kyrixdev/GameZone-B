@@ -1,0 +1,24 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static "styles\components\browseByCategory.css" %}">
+
+<div class="main__broweByCategory flexCenter">
+
+    <div class="broweByCategory__div flexCenter">
+
+        <div class="broweByCategory__categorys flexCenter">
+            {% for category in categories %}
+            <div class="categorys__category flexCenter">
+                <div class="category__img flexCenter">
+                    <div class="img__div flexCenter">
+                        <img src="{{ category.image.url }}" alt="{{ category.title }}">
+                    </div>
+                </div>
+                <div class="category__title flexCenter">{{ category.name }}</div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</div>

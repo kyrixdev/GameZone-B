@@ -1,0 +1,11 @@
+.elevation-3 {
+    box-shadow: none !important;
+}
+
+.img-circle {
+    border-radius: 0;
+}
+
+#logo-img {
+    box-shadow: none;
+}
